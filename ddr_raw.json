@@ -1,0 +1,33 @@
+{
+  "property_issue_summary": "AI analysis could not be completed due to Gemini API unavailability. A fallback DDR structure has been generated so documentation can proceed.\n\nInspection text length: 3756 chars. Thermal text length: 6496 chars.",
+  "area_wise_observations": [
+    {
+      "area": "General",
+      "negative_side": "Detailed inspection-side observation not available in fallback mode.",
+      "positive_side": "Detailed source-side observation not available in fallback mode.",
+      "thermal_finding": "Not Available",
+      "image_reference": "Not Available"
+    }
+  ],
+  "probable_root_cause": "Root cause could not be reliably derived because Gemini analysis failed. Please rerun once API quota is available.",
+  "severity_assessment": [
+    {
+      "area": "General",
+      "severity": "Medium",
+      "reasoning": "Auto-assigned in fallback mode because Gemini analysis was unavailable."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "priority": "Short-term",
+      "action": "Re-run AI analysis after quota is restored and validate area-level details.",
+      "area": "General"
+    }
+  ],
+  "additional_notes": "Fallback reason: Gemini quota exceeded for this API key/project. Update billing/quota or use a different API key/project and retry.. Inspection excerpt: [PAGE 1] AI Generalist | Applied AI Builder - Assignment & Evaluation Guide  Candidate Practical Assignment  Objective  We want to understand how you think, design, and build real AI workflows,  not just  theoretical knowledge.  You may use any tools, models, frameworks, or languages.  Time Limit: 24 Hours  Submission Requirements  Please submit the following:  \u2022 Working output (project live link / repository / screenshots)  \u2022 A 3\u20135 minute Loom video explaining:  o What you built  o How it works. Thermal excerpt: [PAGE 1] 28.8 \u00b0C 23.4 \u00b0C 27/09/22 Hotspot :  28.8 \u00b0C Coldspot :  23.4 \u00b0C Emissivity :  0.94 Reflected temperature :  23 \u00b0C Thermal image : RB02380X.JPG Device : GTC 400 C Professional Serial Number : 02700034772 1   [PAGE 2] 27.4 \u00b0C 22.4 \u00b0C 27/09/22 Hotspot :  27.4 \u00b0C Coldspot :  22.4 \u00b0C Emissivity :  0.94 Reflected temperature :  23 \u00b0C Thermal image : RB02386X.JPG Device : GTC 400 C Professional Serial Number : 02700034772 2   [PAGE 3] 27 \u00b0C 22 \u00b0C 27/09/22 Hotspot :  27 \u00b0C Coldspot :  22 \u00b0C Emi.",
+  "missing_or_unclear_information": [
+    "AI-generated detailed findings unavailable due to API quota/rate limit.",
+    "Area-level thermal interpretation not available in fallback mode.",
+    "Re-run with a working Gemini quota for full analysis."
+  ]
+}
