@@ -65,9 +65,7 @@ def auto_discover_pdfs(base_dir: Path) -> tuple[str | None, str | None]:
         return None, None
     return str(inspection_pdf), str(thermal_pdf)
 
-# ─────────────────────────────────────────────
-# CONFIG
-# ─────────────────────────────────────────────
+
 load_dotenv_file(Path(__file__).resolve().parent / ".env")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # set via env var
 BASE_DIR = Path(__file__).resolve().parent
@@ -79,9 +77,8 @@ ENV_DDR_OUT_PATH = os.environ.get("DDR_OUTPUT_PATH", "").strip()
 ENV_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "").strip()
 ENV_ALLOW_FALLBACK = os.environ.get("DDR_ALLOW_FALLBACK", "1").strip().lower() in {"1", "true", "yes", "y", "on"}
 
-# ─────────────────────────────────────────────
+
 # STEP 1: EXTRACT TEXT FROM PDFs
-# ─────────────────────────────────────────────
 def extract_text(pdf_path: str) -> str:
     doc = fitz.open(pdf_path)
     text_parts = []
@@ -92,9 +89,9 @@ def extract_text(pdf_path: str) -> str:
     return "\n\n".join(text_parts)
 
 
-# ─────────────────────────────────────────────
+
 # STEP 2: EXTRACT IMAGES
-# ─────────────────────────────────────────────
+
 def extract_inspection_images(pdf_path: str, out_dir: str) -> list:
     """Extract embedded site photos from inspection PDF."""
     os.makedirs(out_dir, exist_ok=True)
@@ -137,9 +134,9 @@ def render_thermal_pages(pdf_path: str, out_dir: str) -> list:
     return saved
 
 
-# ─────────────────────────────────────────────
+
 # STEP 3: BUILD DDR PROMPT & CALL GEMINI
-# ─────────────────────────────────────────────
+
 DDR_PROMPT = """
 You are an expert building diagnostic engineer generating a professional DDR (Detailed Diagnostic Report).
 
@@ -526,9 +523,9 @@ def call_gemini_for_ddr(inspection_text: str, thermal_text: str, api_key: str) -
         raise
 
 
-# ─────────────────────────────────────────────
+
 # STEP 4: BUILD .DOCX REPORT
-# ─────────────────────────────────────────────
+
 
 SEVERITY_COLORS = {
     "High":   RGBColor(0xC0, 0x00, 0x00),
@@ -624,7 +621,7 @@ def build_docx_report(
 
     doc.add_paragraph()
 
-    # ── Section 1: Property Issue Summary ──
+
     add_section_heading(doc, "1. Property Issue Summary")
     doc.add_paragraph(ddr.get("property_issue_summary", "Not Available"))
 

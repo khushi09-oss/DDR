@@ -102,16 +102,6 @@ Generated report contains:
 - With fallback enabled, pipeline still generates a valid structured DDR, but deep AI reasoning is reduced.
 - Image mapping is heuristic (area text to page match first, index fallback second).
 
-## Suggested Submission Artifacts
-
-- GitHub repository link
-- Sample generated `DDR_Report.docx`
-- Screenshot(s) of run logs and output
-- 3-5 minute Loom explaining:
-  - what was built
-  - how it works
-  - limitations
-  - next improvements
 
 ## Future Improvements
 
