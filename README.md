@@ -64,7 +64,7 @@ Notes:
 - `GEMINI_MODEL` is optional; code tries fallback model candidates.
 - `DDR_ALLOW_FALLBACK=1` allows report generation even if Gemini returns quota/rate-limit errors.
 
-## Run
+## Run (CLI)
 
 ### Default (uses .env / auto-discovery)
 
@@ -84,6 +84,39 @@ python ddr.py --inspection "Sample Report.pdf" --thermal "Thermal Images.pdf" --
 python ddr.py --allow-fallback
 python ddr.py --no-allow-fallback
 ```
+
+## Run Live API (FastAPI)
+
+Install all dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start the API server:
+
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+Open interactive docs:
+- http://127.0.0.1:8000/docs
+
+Endpoints:
+- `GET /health`: server and config status
+- `POST /generate`: upload 2 files as form-data fields:
+  - `inspection_pdf` (.pdf)
+  - `thermal_pdf` (.pdf)
+
+Response:
+- downloadable `DDR_Report.docx`
+
+## Deploy (Render / Railway)
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+- Required environment variable: `GEMINI_API_KEY`
+- Optional env vars: `GEMINI_MODEL`, `DDR_ALLOW_FALLBACK`
 
 ## Output DDR Sections
 
